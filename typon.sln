@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "typon", "typon\typon.csproj", "{72A8CD8A-5C08-43E2-96A5-C7E2AD34F634}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "typon.Tests", "typon.Tests\typon.Tests.csproj", "{EBD8AAE2-842C-4E18-94ED-F4161F55E32E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{72A8CD8A-5C08-43E2-96A5-C7E2AD34F634}.Debug|x86.Build.0 = Debug|x86
 		{72A8CD8A-5C08-43E2-96A5-C7E2AD34F634}.Release|x86.ActiveCfg = Release|x86
 		{72A8CD8A-5C08-43E2-96A5-C7E2AD34F634}.Release|x86.Build.0 = Release|x86
+		{EBD8AAE2-842C-4E18-94ED-F4161F55E32E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EBD8AAE2-842C-4E18-94ED-F4161F55E32E}.Debug|x86.Build.0 = Debug|Any CPU
+		{EBD8AAE2-842C-4E18-94ED-F4161F55E32E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EBD8AAE2-842C-4E18-94ED-F4161F55E32E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
