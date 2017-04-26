@@ -9,7 +9,6 @@ namespace typon
     {
 		Assembly assembly;
 		StreamReader textStreamReader;
-        //private string filePath = @"/Users/cgaray/Documents/mims_berkeley/2017_spring/info_290t_agile_engineering_practices/final_project/typon/typon/resources/words.txt";
         private List<string> wordsInFile = new List<string>();
         private Random randomGenerator;
         private int numberOfWordsInFile;
@@ -17,6 +16,8 @@ namespace typon
 
         public WordCollection()
         {
+            //TODO: don't read the whole thing to memory, read each word when needed.
+            //TODO: what happens when could not read the file?
             assembly = Assembly.GetExecutingAssembly();
             using (textStreamReader = new StreamReader(assembly.GetManifestResourceStream("typon.words.txt")))
 			{
@@ -27,15 +28,12 @@ namespace typon
 				}
                 numberOfWordsInFile = wordsInFile.Count;
 			}
-            //wordsInFile = File.ReadAllLines(filePath);
-            //numberOfWordsInFile = wordsInFile.Length;
             randomGenerator = new Random();
         }
           
         public string getOneRandomWord()
         {
-            //Console.WriteLine("word: {0}", wordsInFile[randomGenerator.Next(numberOfWordsInFile)]);
-            //Console.WriteLine("word: {0}", wordsInFile[randomGenerator.Next(numberOfWordsInFile)]);
+            //TODO: check if list has words.
             return wordsInFile[randomGenerator.Next(numberOfWordsInFile)];
         }
     }

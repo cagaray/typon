@@ -7,10 +7,17 @@ namespace typon.Tests
     public class WordCollectionTest
     {
         [Test()]
-        public void getOneWordShouldGetOneWord()
+        public void getOneWordShouldNotBeEmpty()
         {
             WordCollection words = new WordCollection();
             Assert.IsNotEmpty(words.getOneRandomWord());
+        }
+
+        [Test()]
+        public void twoConsecutivegetOneRandomWordShouldNotBeEqual()
+        {
+            WordCollection words = new WordCollection();
+            Assert.That(words.getOneRandomWord(), Is.Not.EqualTo(words.getOneRandomWord()));
         }
     }
 }
