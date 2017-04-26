@@ -1,8 +1,9 @@
-﻿language: csharp
-solution: typon.sln
-install:
-  - nuget restore typon.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+language: csharp
 script:
   - xbuild /p:Configuration=Release typon.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./typon.Tests/bin/Release/typon.Tests.dll
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore typon.sln
+after_script:
+  - nunit-console typon.Tests/bin/Release/typon.Tests.dll
