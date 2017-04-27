@@ -34,5 +34,14 @@ namespace typon.Tests
             screen.addWordToGame("another");
             Assert.True(screen.checkWordInGame("test"));
         }
+
+		[Test]
+		public void checkNonExistingWordShoudlReturnFalse()
+		{
+			AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+			screen.addWordToGame("test");
+			screen.addWordToGame("another");
+            Assert.False(screen.checkWordInGame("other"));
+		}
     }
 }
