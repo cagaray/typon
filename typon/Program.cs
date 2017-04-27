@@ -26,6 +26,7 @@ namespace typon
 				Console.WriteLine("Number of lives left: 8");
 				Console.WriteLine("Write the words on the screen (quit to exit):");
                 userResponse = Console.ReadLine();
+                animatedScreen.moveWordsOneRow();
             } while (userResponse != "quit");
         }
     }
