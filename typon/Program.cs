@@ -12,16 +12,15 @@ namespace typon
             do
             {
                 Console.Clear();
+                animatedScreen.addWordToGame(words.getOneRandomWord());
 				animatedScreen.DrawScreen();
 
-                animatedScreen.addWordToGame(words.getOneRandomWord());
-
-				int left = Console.CursorLeft;
-				int top = Console.CursorTop;
-				Console.SetCursorPosition(0, 0);
-				Console.SetCursorPosition(0, 0);
-				Console.Write("test");
-				Console.SetCursorPosition(left, top);
+				//int left = Console.CursorLeft;
+				//int top = Console.CursorTop;
+				//Console.SetCursorPosition(0, 0);
+				//Console.SetCursorPosition(0, 0);
+				//Console.Write("test");
+				//Console.SetCursorPosition(left, top);
 
 				//TODO: implement lives.
 				Console.WriteLine("Number of lives left: 8");

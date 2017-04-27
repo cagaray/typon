@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="Test.cs" />
     <Compile Include="WordCollectionTest.cs" />
+    <Compile Include="AnimatedWordsScreenTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

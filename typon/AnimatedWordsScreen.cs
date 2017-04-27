@@ -7,7 +7,7 @@ namespace typon
     {
         private int width;
         private int height;
-        Hashtable wordsInGame = new Hashtable();
+        Hashtable wordsInGame = new Hashtable(); //stores words on the screen and their position on the screen now.
 
         public AnimatedWordsScreen(int width, int height)
         {
@@ -23,6 +23,13 @@ namespace typon
                 }
                 Console.Write("\n");
             }
+            int left = Console.CursorLeft;
+            int top = Console.CursorTop;
+            foreach(DictionaryEntry de in wordsInGame){
+                Console.SetCursorPosition(((int[])de.Value)[0], ((int[])de.Value)[1]);
+                Console.Write(de.Key);
+            }
+            Console.SetCursorPosition(left, top);
         }
 
         public void addWordToGame(string word)
