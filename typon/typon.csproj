@@ -35,6 +35,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WordCollection.cs" />
+    <Compile Include="AnimatedWordsScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="words.txt" />

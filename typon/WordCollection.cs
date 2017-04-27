@@ -11,7 +11,6 @@ namespace typon
 		StreamReader textStreamReader;
         private List<string> wordsInFile = new List<string>();
         private Random randomGenerator;
-        private int numberOfWordsInFile;
 
 
         public WordCollection()
@@ -26,15 +25,19 @@ namespace typon
 				{
                     wordsInFile.Add(line);
 				}
-                numberOfWordsInFile = wordsInFile.Count;
 			}
             randomGenerator = new Random();
         }
-          
+
+        public double getTotalWordsInCollection()
+        {
+            return wordsInFile.Count;
+        }
+
         public string getOneRandomWord()
         {
             //TODO: check if list has words.
-            return wordsInFile[randomGenerator.Next(numberOfWordsInFile)];
+            return wordsInFile[randomGenerator.Next(wordsInFile.Count)];
         }
     }
 }
