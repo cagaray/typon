@@ -25,5 +25,14 @@ namespace typon.Tests
 			AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
 			Assert.DoesNotThrow(() => { screen.moveWordsOneRow(); });
 		}
+
+        [Test]
+        public void checkExistingWordShoudlReturnTrue()
+        {
+            AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+            screen.addWordToGame("test");
+            screen.addWordToGame("another");
+            Assert.True(screen.checkWordInGame("test"));
+        }
     }
 }

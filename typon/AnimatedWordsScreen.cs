@@ -24,7 +24,11 @@ namespace typon
                 }
                 Console.Write("\n");
             }
-            int left = Console.CursorLeft;
+            for (int w = 0; w < width; w++){
+                Console.Write("*");
+            }
+            Console.Write("\n");
+                int left = Console.CursorLeft;
             int top = Console.CursorTop;
             foreach(DictionaryEntry de in wordsInGame){
                 if(((int[])de.Value)[1] < height){
@@ -35,10 +39,15 @@ namespace typon
             Console.SetCursorPosition(left, top);
         }
 
+        public bool checkWordInGame(string word)
+        {
+            return (wordsInGame.Contains(word) && ((int[])wordsInGame[word])[1] < height);
+        }
+
         public void addWordToGame(string word)
         {
             //TODO: check word.
-            wordsInGame.Add(word, new[] { random.Next(width - word.Length), 0 });
+            wordsInGame.Add(word, new[] { random.Next(width - word.Length + 1), 0 });
         }
 
         public void moveWordsOneRow()
