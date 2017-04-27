@@ -58,5 +58,17 @@ namespace typon
 			}
 
         }
+
+        public void checkAndRemoveWordInGame(string word)
+        {
+            if(wordsInGame.Contains(word)){
+                wordsInGame.Remove(word);
+            }
+        }
+
+        public int numberOfWordsInGame()
+        {
+            return wordsInGame.Count;
+        }
     }
 }

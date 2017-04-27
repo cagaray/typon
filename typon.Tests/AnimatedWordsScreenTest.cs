@@ -43,5 +43,17 @@ namespace typon.Tests
 			screen.addWordToGame("another");
             Assert.False(screen.checkWordInGame("other"));
 		}
+
+		[Test]
+		public void checkAndRemoveExistingWordShoudlRemoveOneWord()
+		{
+			AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+			screen.addWordToGame("test");
+			screen.addWordToGame("another");
+            screen.addWordToGame("other");
+            Assert.AreEqual(3, screen.numberOfWordsInGame());
+			screen.checkAndRemoveWordInGame("test");
+            Assert.AreEqual(2, screen.numberOfWordsInGame());
+		}
     }
 }
