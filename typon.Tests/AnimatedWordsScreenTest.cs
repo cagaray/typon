@@ -55,5 +55,13 @@ namespace typon.Tests
 			screen.checkAndRemoveWordInGame("test");
             Assert.AreEqual(2, screen.numberOfWordsInGame());
 		}
+
+        [Test]
+        public void lostOneLifeShouldRemoveOneLife(){
+            AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+            Assert.AreEqual(8, screen.livesLeft());
+            screen.looseOneLive();
+            Assert.AreEqual(7, screen.livesLeft());
+        }
     }
 }

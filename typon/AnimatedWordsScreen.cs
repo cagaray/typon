@@ -9,6 +9,7 @@ namespace typon
         private int height;
         Hashtable wordsInGame = new Hashtable(); //stores words on the screen and their position on the screen now.
         Random random = new Random();
+        private int lives = 8;
 
         public AnimatedWordsScreen(int width, int height)
         {
@@ -28,7 +29,7 @@ namespace typon
                 Console.Write("*");
             }
             Console.Write("\n");
-			Console.WriteLine("Number of lives left: 8");
+            Console.WriteLine("Number of lives left: {0}", lives);
 			Console.WriteLine("Write the words on the screen (quit to exit):");
             int left = Console.CursorLeft;
             int top = Console.CursorTop;
@@ -57,6 +58,9 @@ namespace typon
 			foreach (DictionaryEntry de in wordsInGame)
             {
                 ((int[])de.Value)[1] += 1;
+                if(((int[])de.Value)[1] == height){
+                    looseOneLive();
+                }
 			}
 
         }
@@ -66,6 +70,16 @@ namespace typon
             if(wordsInGame.Contains(word)){
                 wordsInGame.Remove(word);
             }
+        }
+
+        public void looseOneLive()
+        {
+            lives -= 1;
+        }
+
+        public int livesLeft()
+        {
+            return lives;
         }
 
         public int numberOfWordsInGame()
