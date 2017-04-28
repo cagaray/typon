@@ -86,5 +86,10 @@ namespace typon
         {
             return wordsInGame.Count;
         }
+
+        public bool gameOver()
+        {
+            return (!(lives > 0));
+        }
     }
 }

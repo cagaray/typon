@@ -63,5 +63,27 @@ namespace typon.Tests
             screen.looseOneLive();
             Assert.AreEqual(7, screen.livesLeft());
         }
+
+        [Test]
+        public void afterLoosingLastLiveShouldGameOver(){
+            AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+            Assert.False(screen.gameOver());
+            screen.looseOneLive();
+            Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+			Assert.False(screen.gameOver());
+			screen.looseOneLive();
+            Assert.True(screen.gameOver());
+        }
     }
 }
