@@ -7,28 +7,23 @@ namespace typon
         public static void Main(string[] args)
         {
             AnimatedWordsScreen animatedScreen = new AnimatedWordsScreen(60, 20);
+            animatedScreen.DrawScreen();
             WordCollection words = new WordCollection();
-            string userResponse;
-            do
+
+            var timer = new System.Timers.Timer(3000);
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(delegate
             {
                 Console.Clear();
                 animatedScreen.addWordToGame(words.getOneRandomWord());
-				animatedScreen.DrawScreen();
-
-				//int left = Console.CursorLeft;
-				//int top = Console.CursorTop;
-				//Console.SetCursorPosition(0, 0);
-				//Console.SetCursorPosition(0, 0);
-				//Console.Write("test");
-				//Console.SetCursorPosition(left, top);
-
-				//TODO: implement lives.
-				Console.WriteLine("Number of lives left: 8");
-				Console.WriteLine("Write the words on the screen (quit to exit):");
+                animatedScreen.DrawScreen();
+                animatedScreen.moveWordsOneRow();
+            });
+            timer.Start();
+            string userResponse = string.Empty;
+            while(userResponse != "quit"){
                 userResponse = Console.ReadLine();
                 animatedScreen.checkAndRemoveWordInGame(userResponse);
-                animatedScreen.moveWordsOneRow();
-            } while (userResponse != "quit");
+            }
         }
     }
 }

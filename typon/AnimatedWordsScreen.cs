@@ -28,7 +28,9 @@ namespace typon
                 Console.Write("*");
             }
             Console.Write("\n");
-                int left = Console.CursorLeft;
+			Console.WriteLine("Number of lives left: 8");
+			Console.WriteLine("Write the words on the screen (quit to exit):");
+            int left = Console.CursorLeft;
             int top = Console.CursorTop;
             foreach(DictionaryEntry de in wordsInGame){
                 if(((int[])de.Value)[1] < height){
