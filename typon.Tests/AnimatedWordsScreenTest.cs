@@ -9,7 +9,7 @@ namespace typon.Tests
         public void drawScreenShouldNotThrowException()
         {
             AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
-            Assert.DoesNotThrow(() => { screen.DrawScreen(); });
+            Assert.DoesNotThrow(() => { screen.drawScreen(); });
         }
 
 		[Test()]
@@ -59,31 +59,33 @@ namespace typon.Tests
         [Test]
         public void lostOneLifeShouldRemoveOneLife(){
             AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
-            Assert.AreEqual(8, screen.livesLeft());
+            int initialLives = screen.livesLeft();
             screen.looseOneLive();
-            Assert.AreEqual(7, screen.livesLeft());
+            Assert.AreEqual(initialLives - 1, screen.livesLeft());
         }
 
         [Test]
         public void afterLoosingLastLiveShouldGameOver(){
             AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
-            Assert.False(screen.gameOver());
-            screen.looseOneLive();
-            Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
-			Assert.False(screen.gameOver());
-			screen.looseOneLive();
+            while(screen.livesLeft() > 0){
+                Assert.False(screen.gameOver());
+                screen.looseOneLive();
+            }
             Assert.True(screen.gameOver());
         }
+
+		[Test()]
+		public void drawInitialScreenShouldNotThrowException()
+		{
+			AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+            Assert.DoesNotThrow(() => { screen.drawInitialScreen(); });
+		}
+
+		[Test()]
+		public void drawGameOverShouldNotThrowException()
+		{
+			AnimatedWordsScreen screen = new AnimatedWordsScreen(60, 20);
+            Assert.DoesNotThrow(() => { screen.drawGameOver(); });
+		}
     }
 }
